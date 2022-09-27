@@ -201,8 +201,8 @@ void q_spilt(element_t *src,element_t **front,element_t **back){//ref:https://it
         }
     }
 
-    front=src;
-    back=slow->next;
+    *front=src;
+    *back=slow->next;
     slow->next=NULL;
 
 }
@@ -237,12 +237,12 @@ void merge_sort(element_t **head)
     
     element_t *a,*b;
 
-    q_spilt(head,&a,&b);
+    q_spilt(*head,&a,&b);
 
     merge_sort(&a);
     merge_sort(&b);
 
-    head=sortedmerge(a,b);
+    *head=sortedmerge(a,b);
 }
 
 /*
